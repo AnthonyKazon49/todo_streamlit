@@ -1,0 +1,65 @@
+# Environment variables & secrets
+.streamlit/secrets.toml
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Streamlit specific
+.streamlit/cache
+.streamlit/logs
+.streamlit/*.toml
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+todo.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Credentials & sensitive files
+secrets.json
+credentials.json
+*.pem
+*.key
