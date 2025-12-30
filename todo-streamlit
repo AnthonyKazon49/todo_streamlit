@@ -1,0 +1,36 @@
+import streamlit as st
+import json
+from pathlib import Path
+
+st.set_page_config(page_title="Todo App", layout="wide")
+
+st.title("📝 Todo App")
+
+# Initialize session state
+if "todos" not in st.session_state:
+    st.session_state.todos = []
+
+# Input section
+col1, col2 = st.columns([4, 1])
+with col1:
+    new_todo = st.text_input("Add a new task:", placeholder="Enter your task here")
+with col2:
+    if st.button("Add", use_container_width=True):
+        if new_todo.strip():
+            st.session_state.todos.append({"task": new_todo, "completed": False})
+            st.rerun()
+
+# Display todos
+st.subheader("Your Tasks")
+if st.session_state.todos:
+    for i, todo in enumerate(st.session_state.todos):
+        col1, col2, col3 = st.columns([3, 1, 1])
+        with col1:
+            completed = st.checkbox(todo["task"], value=todo["completed"], key=f"todo_{i}")
+            st.session_state.todos[i]["completed"] = completed
+        with col2:
+            if st.button("Delete", key=f"delete_{i}"):
+                st.session_state.todos.pop(i)
+                st.rerun()
+else:
+    st.info("No tasks yet. Add one to get started!")
